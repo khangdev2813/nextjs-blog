@@ -1,7 +1,22 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-
+const courses = [
+  {
+    title:"title-1",
+    content:"content-1"
+  },
+  {
+    title:"title-2",
+    content:"content-2"
+  },
+  {
+    title:"title-3",
+    content:"content-3"
+  } 
+];
 export default function Home() {
+  
+
   return (
     <div className={styles.container}>
       <Head>
@@ -19,7 +34,15 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
+          {
+            courses.map((course,index) => 
+            <a href="https://nextjs.org/docs" className={styles.card}>
+              <h3>{course.title} &rarr;</h3>
+            <p>{course.content}</p>
+          </a>
+            )
+          }
+          {/* <a href="https://nextjs.org/docs" className={styles.card}>
             <h3>Documentation &rarr;</h3>
             <p>Find in-depth information about Next.js features and API.</p>
           </a>
@@ -45,7 +68,7 @@ export default function Home() {
             <p>
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
-          </a>
+          </a> */}
         </div>
       </main>
 
